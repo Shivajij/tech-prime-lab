@@ -1,0 +1,86 @@
+.login-main {
+    margin: 0;
+    width: 100%;
+    min-height: 500px;
+    background-image: url('../pages//images/login-bg-1.svg');
+    background-size: calc(100% + -10px) auto; 
+    background-repeat: no-repeat;
+    background-position: -0px 0;
+}
+
+  
+  .login-main > p{
+    color: white;
+    font-size: 16px;
+    margin: 20px 0px 25px 20px;
+  }
+  
+  .login-main .card{
+    width: 400px;
+    border-radius: 10px;
+  }
+  .login-main .img-div{
+    padding-top: 70px;
+  }
+  
+  .login-main .img-div img{
+    width: 85px;
+  }
+  
+  .form-group input{
+    padding: 11px;
+  }
+  
+  .form-group .field-icon{
+    position: absolute;
+    right: 10px;
+  }
+  
+  .form .forgot-password{
+    cursor: pointer;
+    color: #4C8AC4;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+  
+  .login-btn{
+    padding: 7px 60px;
+    background-color: #035EB3;
+    color: white;
+    border: none;
+  }
+
+  .form-group {
+    clear: both;
+}
+
+.form-control-placeholder {
+    float: left;
+    width: 100px; 
+    text-align: left;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+  @media (max-width: 576px) {
+    .login-main {
+        margin: 0;
+        width: 100%;
+        min-height: 100px;
+        background-image: url('../pages//images/login-bg-1.svg');
+        background-size: calc(100% + -0px) auto; 
+        background-repeat: no-repeat;
+        background-position: -0px 0;
+    }
+  
+    .login-main .img-div img{
+      width: 100px;
+    }
+  
+    .login-main .card{
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+    }
+  }
