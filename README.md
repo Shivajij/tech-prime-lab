@@ -15,6 +15,9 @@ password: mypass321
 ## `LOGIN`
 
 ![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/first.PNG)
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/second.PNG)
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/third.PNG)
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/fourth.PNG)
 
 
 
