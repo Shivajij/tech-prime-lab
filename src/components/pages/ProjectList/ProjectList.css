@@ -1,0 +1,76 @@
+/* ProjectList.css */
+
+.dashboard .dashboard-main .search-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: black;
+    border-radius: 0;
+    width: 300px;
+    font-size: 18px; /* Increase the font size as desired */
+  }
+  
+  .dashboard-main .table-div {
+    padding: 0px 25px;
+  }
+  
+  .table-div .table-second-div {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .dashboard-main .search-div {
+    padding: 20px;
+  }
+  
+  .dashboard-main .sort-option {
+    padding: 10px;
+  }
+  
+  .dashboard-main .sort-option p {
+    color: #BBC0C6;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+  }
+  
+  .dashboard-main .sort-option select {
+    border: none;
+    font-weight: bold; /* Make the text bold */
+    font-size: 18px; /* Increase the font size as desired */
+  }
+  
+  .dashboard-main .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .big-bold-text {
+    font-size: 18px; /* Increase the font size as desired */
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard .dashboard-main .search-input {
+      width: 80%;
+      background-color: #F2F4F7;
+    }
+  
+    .table-div .table-second-div {
+      box-shadow: none;
+      background-color: #F2F4F7;
+      border-radius: 0px;
+    }
+  
+    .dashboard-main .sort-option p {
+      font-size: 13px;
+    }
+  
+    .dashboard-main .sort-option select {
+      background-color: #F2F4F7;
+      font-size: 13px;
+    }
+  }
+  

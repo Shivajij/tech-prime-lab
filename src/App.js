@@ -4,7 +4,6 @@ import Login from './components/Login/Login';
 import AddProject from './components/pages/AddProject/AddProject';
 import Dashboard from './components/pages/dashboard/Dashboard';
 import Sidebar from './components/pages/Sidebar/Sidebar';
-import Routes from './components/AllRoutes/Routes';
 import AllRoutes from './components/AllRoutes/Routes';
 import ChartGraph from './components/pages/dashboard/CartGraph';
 

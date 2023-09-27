@@ -1,60 +1,113 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDepartmentWiseData } from '../../Redux/AppRedux/action';
 
-const ChartComponent = () => {
-  const [chartOptions, setChartOptions] = useState({});
+const DepartmentChart = () => {
+  const dispatch=useDispatch()
 
-  useEffect(() => {
-   
-    fetch('https://fakestoreapi.com/products?limit=5')
-      .then((response) => response.json())
-      .then((data) => {
-        const categories = [];
-        const successPercentages = [];
+  const GraphData=useSelector(state=> state.GraphData)
+  const successPercentage =
+    GraphData.departments &&
+    GraphData.totalClosed &&
+    GraphData.totalRegistered &&
+    GraphData.departments.map((department, index) => ({
+      name: department,
+      y: (GraphData.totalClosed[index] / GraphData.totalRegistered[index]) * 100,
+    }));
 
-        data.forEach((departmentData) => {
-          const total = departmentData.total;
-          const closed = departmentData.closed;
-          const successPercentage = ((closed / total) * 100).toFixed(2); 
-          categories.push(departmentData.department);
-          successPercentages.push(parseFloat(successPercentage));
-        });
+  const chartOptions = {
+    chart: {
+      type: 'column',
+      spacing: [30, 30, 30, 30]
+    },
+    title: {
+      text: '',
+    },
+    xAxis: {
+      categories: GraphData?.departments,
+      labels: {
+        formatter: function () {
+          const index = this.pos;
+          const successPercent = successPercentage[index].y;
+          const departmentName = this.value;
+          return `<span style="font-weight: bold; fontSize: 16px">${successPercent.toFixed(0)}%</span><br/><span style="fontSize: 15px">${departmentName}</span>`;
+        },
+      },
+      lineColor: 'gray',
+      lineWidth: 2,
+    },
+    yAxis: [
+      {
+        gridLineWidth: 0,
+        tickLength: 0,
+        lineColor: 'gray',
+        lineWidth: 2,
+      },
+      {
+        title: {
+          text: '',
+        },
+        labels: {
+          format: '{value}',
+        },
+      },
+      {
+        title: {
+          text: '',
+        }
+      },
+    ],
+    series: [
+      {
+        name: 'Total',
+        data: GraphData?.totalRegistered,
+        color: 'blue',
+        dataLabels: {
+          enabled: true,
+          format: '{point.y}',
+          style: {
+            color: 'black',
+          },
+        },
+      },
+      {
+        name: 'Closed',
+        data: GraphData?.totalClosed,
+        color: 'green',
+        dataLabels: {
+          enabled: true,
+          format: '{point.y}',
+          style: {
+            color: 'black',
+          },
+        },
+      },
+    ],
+  };
 
-      
-        setChartOptions({
-          chart: {
-            type: 'bar',
-          },
-          title: {
-            text: 'Department-wise Success Percentage of Projects',
-          },
-          xAxis: {
-            categories: categories,
-            title: {
-              text: 'Department',
-            },
-          },
-          yAxis: {
-            title: {
-              text: 'Success Percentage (%)',
-            },
-          },
-          series: [
-            {
-              name: 'Success Percentage',
-              data: successPercentages,
-            },
-          ],
-        });
-      });
+  useEffect(()=>{
+   dispatch(getDepartmentWiseData())
   }, []);
 
+  console.log(GraphData);
+
   return (
-    <div>
-      <HighchartsReact highcharts={Highcharts} options={chartOptions} />
+    <div className='chart-div'>
+      <div className="shadow p-3 mb-5 bg-white rounded-3">
+        {successPercentage ? (
+          <HighchartsReact
+            highcharts={Highcharts}
+            options={chartOptions}
+            containerProps={{ style: { height: '400px' } }}
+          />
+        ) : (
+          <div>Loading chart...</div>
+        )}
+      </div>
     </div>
   );
 };
 
-export default ChartComponent;
+export default DepartmentChart

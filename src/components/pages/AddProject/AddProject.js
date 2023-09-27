@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-// import Sidebar from '../dashboard/Sidebar';
-// import logo from "../../assets/Logo.svg";
-// import "./createProject.css"
+import Sidebar from '../Sidebar/Sidebar';
 import "./AddProject.css"
 import axios from "axios";
-import { toast } from 'react-toastify';
-
-import Sidebar from '../Sidebar/Sidebar';
 import Navbar from '../ProjectList/Navbar';
+import { useDispatch } from 'react-redux';
+import { registerProject } from '../../Redux/AppRedux/action';
 // import PageHeading from '../helping/PageHeading';
 
-const AddProject = () => {
+const CreateProject = () => {
   const [createProject, setCreateProject] = useState({category: "Quality A", department: "Strategy", division: "Compressor", location: "Pune", priority: "High", reason: "Business", type: "Internal", endDate: '', startDate: '', projectName: ""});
   const [error, setError] = useState({projectName: "", startDate: "", endDate: ""});
 
+
+  const dispatch=useDispatch()
   const handleOnchange = (e) => {
     const {name, value} = e.target;
     if(name==="startDate" && createProject.endDate !== ''){
@@ -44,16 +43,10 @@ const AddProject = () => {
 
   const registerProject = async(data) => {
     try{
-      let res = await axios.post(`http://localhost:8080/project/create`, data);
-      toast.success(res?.data?.message || 'New project added successfully', {
-        position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: 3000,
-      });
+      await axios.post(`http://localhost:8080/project/create`, data);
+      alert("New Project added")
     }catch(err){
-      toast.error(err?.response?.data?.message || 'Something wrong', {
-        position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: 3000,
-      });
+     console.log(err)
     }
   }
 
@@ -99,12 +92,13 @@ const AddProject = () => {
     e.preventDefault();
     if(checkValidation(createProject)){
       registerProject({...createProject, status: "Registered"});
+
     }
-    // console.log(createProject)
+
   }
 
   return (
-    <div className='d-flex dashboard '>  
+    <div className='d-flex dashboard'>  
       <Sidebar />
       <div className='dashboard-main'>
         <Navbar heading={"Create Project"} iconImg={<span class={"fa fa-fw fa-chevron-left field-icon"} style={{cursor: "pointer"}}></span>} icon={true}/>
@@ -203,4 +197,4 @@ const AddProject = () => {
   )
 }
 
-export default AddProject
+export default CreateProject
