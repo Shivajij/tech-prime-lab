@@ -13,11 +13,12 @@ kiran.gosavi@techprimelab.com
 password: mypass321
 
 ## `LOGIN`
-![Alt Text]([https://github.com/Shivajij/tech-prime-lab/blob/master/src/components/pages/images/login-bg-1.svg](https://github.com/Shivajij/tech-prime-lab/blob/master/images/first.PNG))
+
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/first.PNG)
 
 
 
-https://github.com/Shivajij/tech-prime-lab/blob/master/src/components/pages/images/login-bg-1.svg
+
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
