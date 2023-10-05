@@ -9,7 +9,7 @@ import { getProject } from '../../Redux/AppRedux/action';
 
 
 const ProjectList = () => {
-  // const [allProject, setAllProject] = useState([]);
+  
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
@@ -23,14 +23,14 @@ const ProjectList = () => {
   useEffect(()=>{
     dispatch(getProject(search,page,sort))
   }, [page, sort, search, editWork]);
-console.log(userState,"kkkkkk",loading);
+
   return (
     <div className='d-flex dashboard'>
       <Sidebar />
       <div className='dashboard-main'>
         <Navbar heading={"Project Listing"} iconImg={<span class={"fa fa-fw fa-chevron-left field-icon"} style={{cursor: "pointer"}}></span>} icon={true}/>
-        <div className='table-div'>
-          <div class="table-second-div">
+        <div className='table-div' >
+          <div class="table-second-div" style={{border:"1px solid rgb(231,232,230)",padding:10}}>
             <div className='d-flex justify-content-between functionality-menu'>
               <div class="d-flex justify-content-start align-items-center search-div">
                 <span class="fa fa-search search-icon"></span>

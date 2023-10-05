@@ -1,22 +1,14 @@
 import axios from 'axios';
 import React from 'react'
-import { toast } from 'react-toastify';
+import "./Table.css"
 
 const Table = ({allProject, setEditWork}) => {
-  const editProject = async(text, id) => {
-    try{
-      let res = await axios.patch(`http://localhost:8080/project/update/${id}`, {status: text});
-      toast.success(res?.data?.message || 'Valid User', {
-        position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: 3000,
-      });
-      setEditWork(Math.random(2))
-    }catch(err){
-      console.log(err)
-      toast.error(err?.response?.data?.message || 'Invalid User', {
-        position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: 3000,
-      });
+  const editProject = async (text, id) => {
+    try {
+      await axios.patch(`http://localhost:8080/project/update/${id}`, { status: text });
+      setEditWork(Math.random(2));
+    } catch (err) {
+      console.log(err);
     }
   }
   const dateChange = (dateStr) => {
@@ -29,7 +21,7 @@ const Table = ({allProject, setEditWork}) => {
 
   return (
     <div style={{paddingLeft: "25px", paddingRight: "25px"}}>
-      <table width={"100%"} className='table'>
+      <table className='table'>
         <thead>
           <tr className='table-primary' style={{fontSize: "18px", fontWeight: "500"}}>
             <th>Project Name</th>
@@ -49,17 +41,17 @@ const Table = ({allProject, setEditWork}) => {
             allProject?.map((project) => (
               <tr key={project._id} style={{fontSize: "14px"}}>
                 <td>
-                  <h3 style={{fontSize: "17px"}}>{project?.projectName}</h3>
-                  <p>{dateChange(project?.startDate)} to {dateChange(project?.endDate)}</p>
+                  <strong>Project Name:</strong> {project?.projectName}<br />
+                  <strong>Dates:</strong> {dateChange(project?.startDate)} to {dateChange(project?.endDate)}
                 </td>
-                <td>{project?.reason}</td>
-                <td>{project?.type}</td>
-                <td>{project?.division}</td>
-                <td>{project?.category}</td>
-                <td>{project?.priority}</td>
-                <td>{project?.department}</td>
-                <td>{project?.location}</td>
-                <td style={{fontWeight: "bold"}}>{project?.status}</td>
+                <td><strong>Reason:</strong> {project?.reason}</td>
+                <td><strong>Type:</strong> {project?.type}</td>
+                <td><strong>Division:</strong> {project?.division}</td>
+                <td><strong>Category:</strong> {project?.category}</td>
+                <td><strong>Priority:</strong> {project?.priority}</td>
+                <td><strong>Dept.:</strong> {project?.department}</td>
+                <td><strong>Location:</strong> {project?.location}</td>
+                <td style={{fontWeight: "bold"}}><strong>Status:</strong> {project?.status}</td>
                 <td>
                   <div className='d-flex gap-3'>
                     <button style={{backgroundColor: "rgb(2,91,170)", color: "white", padding: "3px 18px", borderRadius: "20px", fontWeight: "500", border: "1px solid #025BAA"}} onClick={()=>editProject("Running", project._id)}>Start</button>
@@ -76,4 +68,4 @@ const Table = ({allProject, setEditWork}) => {
   )
 }
 
-export default Table
+export default Table;

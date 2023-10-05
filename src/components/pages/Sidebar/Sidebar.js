@@ -37,7 +37,7 @@ const Sidebar = () => {
   
 
   return (
-    <div className="sidebar" style={{width:"100px"}}>
+    <div className="sidebar" >
       <div className="first-section">
         {/* Dashboard Icon */}
         <div
