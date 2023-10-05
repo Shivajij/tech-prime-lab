@@ -21,7 +21,7 @@ const Table = ({allProject, setEditWork}) => {
 
   return (
     <div style={{paddingLeft: "25px", paddingRight: "25px"}}>
-      <table className='table'>
+      <table className='table' >
         <thead>
           <tr className='table-primary' style={{fontSize: "18px", fontWeight: "500"}}>
             <th>Project Name</th>
@@ -39,7 +39,7 @@ const Table = ({allProject, setEditWork}) => {
         <tbody>
           {
             allProject?.map((project) => (
-              <tr key={project._id} style={{fontSize: "14px"}}>
+              <tr key={project._id} style={{fontSize: "14px",border:"5px solid rgb(231,232,230)"}}>
                 <td>
                   <strong>Project Name:</strong> {project?.projectName}<br />
                   <strong>Dates:</strong> {dateChange(project?.startDate)} to {dateChange(project?.endDate)}

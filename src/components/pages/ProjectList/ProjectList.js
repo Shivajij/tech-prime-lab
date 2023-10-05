@@ -31,7 +31,7 @@ const ProjectList = () => {
         <Navbar heading={"Project Listing"} iconImg={<span class={"fa fa-fw fa-chevron-left field-icon"} style={{cursor: "pointer"}}></span>} icon={true}/>
         <div className='table-div' >
           <div class="table-second-div" style={{border:"1px solid rgb(231,232,230)",padding:10}}>
-            <div className='d-flex justify-content-between functionality-menu'>
+            <div className='d-flex justify-content-between functionality-menu' >
               <div class="d-flex justify-content-start align-items-center search-div">
                 <span class="fa fa-search search-icon"></span>
                 <input type="text" class="form-control search-input" placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
@@ -50,7 +50,7 @@ const ProjectList = () => {
                   </select>
               </div>
             </div>
-           <Table allProject={userState?.projects} setEditWork={setEditWork}/>
+           <Table allProject={userState?.projects} setEditWork={setEditWork} />
           </div>
           <div className='pagination'>
           <Pagination total={userState?.totalPages} active={page} setPage = {setPage}/>  
