@@ -12,13 +12,16 @@ In the project directory, you can run:
 kiran.gosavi@techprimelab.com 
 password: mypass321
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/src/components/pages/images/login-bg-1.svg)
+## `LOGIN`
+
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/first.PNG)
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/second.PNG)
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/third.PNG)
+![Alt Text](https://github.com/Shivajij/tech-prime-lab/blob/master/images/fourth.PNG)
 
 
 
-https://github.com/Shivajij/tech-prime-lab/blob/master/src/components/pages/images/login-bg-1.svg
+
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
